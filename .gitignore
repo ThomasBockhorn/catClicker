@@ -4998,3 +4998,5 @@ node_modules/babel-helper-regex/node_modules/lodash/_charsEndIndex.js
 node_modules/babel-helper-regex/node_modules/lodash/_charsStartIndex.js
 node_modules/babel-helper-regex/node_modules/lodash/_cloneArrayBuffer.js
 node_modules/babel-helper-regex/node_modules/lodash/_cloneBuffer.js
+test/jasmine-standalone-3.1.0/spec/spec-app.js
+test/jasmine-standalone-3.1.0/src/app.js
