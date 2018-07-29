@@ -1,0 +1,25 @@
+{
+  "name": "cat-clicker",
+  "version": "1.0.0",
+  "description": "This silly app will allow the user to choose the cat they want to click on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Bockhorn",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-jasmine": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "jasmine": "^3.1.0"
+  },
+  "dependencies": {
+    "gulp-jasmine-browser": "^4.0.0"
+  }
+}
