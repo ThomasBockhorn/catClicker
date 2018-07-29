@@ -46,6 +46,14 @@ describe("Cat engine", function(){
 
     //Does the cat engine have an addCounter() method
     it("addCounter() method exists", function(){
-        expect(catEngine.addCounter()).toBeDefined();
+        expect(catEngine.addCounter).toBeDefined();
+    });
+
+    //This test checks if the addCounter functions properly
+    it("addCounter method increments the clickNumber", function(){
+        //when the addCounter is called, the catData clickNumber to increment
+        var index = 0;
+        catEngine.addCounter(index);
+        expect(catData[index].clickNumber).toBe(1);
     });
 });
