@@ -24,5 +24,7 @@ const catData = [
 //This is the catEngine which coordinates between the cat clicker model and the UI
 const catEngine = {
     //This function will increment the counter
-    addCounter : function(){}
+    addCounter : function(index){
+        catData[index].clickNumber += 1;
+    }
 };
