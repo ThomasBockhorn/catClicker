@@ -37,5 +37,10 @@ const catEngine = {
         else{
             return(catData[0]);
         }
+    },
+
+    //This method will display all the cats
+    displayAll : function(){
+        return catData;
     }
 };

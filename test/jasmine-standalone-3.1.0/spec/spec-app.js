@@ -72,4 +72,15 @@ describe("Cat engine", function(){
     it("if index is negative, currentDisplay() will point to index 0", function(){
         expect(catEngine.currentDisplay(-1)).not.toBeUndefined();
     });
+
+    //This test checks if displayAll exists
+    it("displayAll exists", function(){
+        expect(catEngine.displayAll).toBeDefined();
+    });
+
+    //This test checks to see if displayAll method displays all the images
+    it("displays all the catData images", function(){
+        var testData = catEngine.displayAll;
+        expect(testData).not.toBe(0);
+    });
 });
