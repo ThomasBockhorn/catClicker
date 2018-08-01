@@ -42,5 +42,22 @@ const catEngine = {
     //This method will display all the cats
     displayAll : function(){
         return catData;
+    },
+
+    //THis method will add a cat into the catData array
+    addCat : function(newName, url){
+        let newCat = {}; //initialize a new cat object
+
+        if(newName != null && url != null){ //This ensures that the user does not enter nothing
+            newCat = {
+                name: newName,
+                img: url,
+                clickNumber: 0
+            };
+        }
+        else{
+            return 0;
+        }
+        catData.push(newCat);
     }
 };

@@ -83,4 +83,37 @@ describe("Cat engine", function(){
         var testData = catEngine.displayAll;
         expect(testData).not.toBe(0);
     });
+
+    //This test checks to see if addCat method exists
+    it("addCat method exists", function(){
+        expect(catEngine.addCat).toBeDefined();
+    });
+
+    //addCat adds a new cat and img
+    it("addCat adds a new cat and URL", function(){
+        var testCatName = "black";
+        var testURL = "https://www.pexels.com/photo/grey-and-white-short-fur-cat-104827/";
+
+        var testObject = {
+            name: testCatName,
+            img: testURL,
+            clickNumber: 0
+        };
+        catEngine.addCat(testCatName, testURL);
+        expect(catData).toContain(jasmine.objectContaining(testObject));
+    });
+
+    //This checks to see if a user accidently puts down nothing for either catName and url
+    it("Checks to ensure that name and url won't accept empty strings", function(){
+        var testCatName;
+        var testURL;
+
+        var testObject = {
+            name: testCatName,
+            img: testURL,
+            clickNumber: 0
+        };
+        catEngine.addCat(testCatName, testURL);
+        expect(catData).not.toContain(jasmine.objectContaining(testObject));
+    });
 });
