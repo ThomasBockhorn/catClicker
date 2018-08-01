@@ -56,4 +56,20 @@ describe("Cat engine", function(){
         catEngine.addCounter(index);
         expect(catData[index].clickNumber).toBe(1);
     });
+
+    //This test checks to see if the currentDisplay method exists
+    it("currentDisplay() method exists", function(){
+        expect(catEngine.currentDisplay).toBeDefined();
+    });
+
+    //This test checks if the currentDisplay() method will return
+    //the particular object of the first cat
+    it("currentDisplay() will return the particular cat object", function(){
+        expect(catEngine.currentDisplay(0)).toBeDefined();
+    });
+
+    //This test checks what the error handling if index was negative
+    it("if index is negative, currentDisplay() will point to index 0", function(){
+        expect(catEngine.currentDisplay(-1)).not.toBeUndefined();
+    });
 });
