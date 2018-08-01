@@ -57,6 +57,19 @@ describe("Cat engine", function(){
         expect(catData[index].clickNumber).toBe(1);
     });
 
+    //This test checks if the resetCounter exists
+    it("resetCounter Exists", function(){
+        expect(catEngine.resetCounter).toBeDefined();
+    });
+
+    //This test checks to see if resetCounter resets the counter to zero
+    it("resets counter to zero", function(){
+        var index = 0;
+        catEngine.addCounter(index);  //This will simulate the counter
+        catEngine.resetCounter(index); //now we attempt to reset the counter
+        expect(catData[index].clickNumber).toBe(0);
+    });
+
     //This test checks to see if the currentDisplay method exists
     it("currentDisplay() method exists", function(){
         expect(catEngine.currentDisplay).toBeDefined();

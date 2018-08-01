@@ -28,6 +28,11 @@ const catEngine = {
         catData[index].clickNumber += 1;
     },
 
+    //This resets the counter
+    resetCounter : function(index){
+        catData[index].clickNumber = 0;
+    },
+
     //This method will the display object to view a particular object in the
     //catData array
     currentDisplay : function(index){
