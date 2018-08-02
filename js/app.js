@@ -6,17 +6,17 @@ const catData = [
     },
     {
         name: "furball",
-        img: "fluffy kitten.png",
+        img: "pic/fluffy kitten.png",
         clickNumber: 0
     },
     {
         name: "sleepy",
-        img: "sleepy cat.png",
+        img: "pic/sleepy cat.png",
         clickNumber: 0
     },
     {
         name: "peppy",
-        img: "wakeup cat.png",
+        img: "pic/wakeup cat.png",
         clickNumber: 0
     }
 ];
