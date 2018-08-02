@@ -129,4 +129,35 @@ describe("Cat engine", function(){
         catEngine.addCat(testCatName, testURL);
         expect(catData).not.toContain(jasmine.objectContaining(testObject));
     });
+
+    //This checks if addCat can handle an undefined variable
+    it("Checks if undefined parameters can be dealt with in addCat", function(){
+        var testResult = catEngine.addCat();
+        expect(testResult).toBe(0);
+    });
+
+    //This test checks to see if deleteCat exists
+    it("deleteCat exists", function(){
+        expect(catEngine.deleteCat).toBeDefined();
+    });
+
+    //This test checks to see if deleteCat actually deletes an element
+    it("deleteCat deletes a specific element in array", function(){
+        //Gets the value of the first element in catData
+        var testObject = catEngine.currentDisplay(0);
+        
+        //Now we delete the cat object with index 0
+        catEngine.deleteCat(0);
+
+        //Now we check to see if that cat object is still there
+        expect(catData).not.toContain(jasmine.objectContaining(testObject));
+    });
+
+    //This test checks to see if no index is specified, that the method
+    //returns 0
+    it("deleteCat returns 0 if no index is specified", function(){
+        var test = catEngine.deleteCat();
+
+        expect(test).toBe(0);
+    });
 });

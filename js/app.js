@@ -49,7 +49,7 @@ const catEngine = {
         return catData;
     },
 
-    //THis method will add a cat into the catData array
+    //This method will add a cat into the catData array
     addCat : function(newName, url){
         let newCat = {}; //initialize a new cat object
 
@@ -64,5 +64,15 @@ const catEngine = {
             return 0;
         }
         catData.push(newCat);
+    },
+
+    //This method will delete a cat from the catData array
+    deleteCat : function(index){
+        if(catData.length > 0 && index != null){
+            catData.splice(index,1);
+        }
+        else{
+            return 0;
+        }
     }
 };
