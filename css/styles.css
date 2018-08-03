@@ -1,0 +1,98 @@
+html,
+body{
+    background: #2193b0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+/*Header*/
+h1{
+    font-size: 5em;
+    margin: auto;
+    text-align: center;
+}
+h1,
+h2{
+    text-shadow: 2px 2px #ffff;
+}
+
+/*flexbox containers*/
+#container,
+.clickNumber,
+.mainCatImage,
+.buttons,
+.navigationButtons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*click score setup*/
+.clickNumber{
+    width: 100%;
+    height: 10%;
+    justify-content: space-around;
+}
+span{
+    margin: 2em;
+}
+
+/*cat pun*/
+.catPun{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+}
+
+/*Container for the buttons and canvas*/
+.mainCatImage{
+    margin-top: 2em;
+    width: 100%;
+    height: 100%;
+    margin-left: 10em;
+}
+/*buttons*/
+form{
+    height: 100%;
+    width: 100%;
+    align-content: center;
+    margin-top: 2em;
+}
+.buttons{
+    width: 10%;
+    margin-right: 1em;
+}
+button{
+    width: 100%;
+    height: 3em;
+}
+
+/*canvas*/
+.field{
+    height: 100%;
+    width: 70%;
+}
+canvas{
+    border: 2px solid black;
+    width: 500px;
+    height: 300px;
+    -webkit-box-shadow: 10px 10px 37px 1px rgba(48,49,51,1);
+    -moz-box-shadow: 10px 10px 37px 1px rgba(48,49,51,1);
+    box-shadow: 10px 10px 37px 1px rgba(48,49,51,1);
+}
+
+/*navigation buttons*/
+.navigationButtons{
+    width: 100%;
+    height: 5em;
+    align-content: center;
+}
+.left,
+.right{
+    width: 5em;
+    height: 2em;
+    margin: auto;
+}
