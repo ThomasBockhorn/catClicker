@@ -2,22 +2,26 @@
 const catData = [
     {   name: "fluffy",
         img: "pic/christmas kitty.png",
-        clickNumber: 0
+        clickNumber: 0,
+        quote: "Meow all too much"
     },
     {
         name: "furball",
         img: "pic/fluffy kitten.png",
-        clickNumber: 0
+        clickNumber: 0,
+        quote: "That was purrfect"
     },
     {
         name: "sleepy",
         img: "pic/sleepy cat.png",
-        clickNumber: 0
+        clickNumber: 0,
+        quote: "You are such a furrball!"
     },
     {
         name: "peppy",
         img: "pic/wakeup cat.png",
-        clickNumber: 0
+        clickNumber: 0,
+        quote: "Cats are special"
     }
 ];
 

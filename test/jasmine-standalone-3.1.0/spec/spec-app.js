@@ -33,7 +33,14 @@ describe("Cat clicker data", function(){
         for(let i = 0; i < catData.length; i++){
             expect(catData[i].clickNumber).toBeDefined();
         }
-    });    
+    }); 
+    
+    //Spec to see if each cat object had a quote
+    it("All the cats have a funny quote", function(){
+        for(let i = 0; i < catData.length; i++){
+            expect(catData[i].quote).toBeDefined();
+        }
+    });
 });
 
 //This suite looks at the inner workings of cat clicker.
