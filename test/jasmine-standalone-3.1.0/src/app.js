@@ -27,6 +27,9 @@ const catData = [
 
 //This is the catEngine which coordinates between the cat clicker model and the UI
 const catEngine = {
+    //keeps track of current index
+    index : 0,
+
     //This method will increment the counter
     addCounter : function(index){
         catData[index].clickNumber += 1;
@@ -44,7 +47,7 @@ const catEngine = {
             return catData[index];
         }
         else{
-            return(catData[0]);
+            return catData[0];
         }
     },
 
@@ -78,5 +81,17 @@ const catEngine = {
         else{
             return 0;
         }
+    }
+};
+
+//Display object that renders the cats and functionality of the buttons
+const render = {
+    //This allows the clickMe button to increment the clickCount number
+    clickMe : function(){
+        const buttonClick = document.querySelector("clickMe");
+        let index = catEngine.index;
+        buttonClick.addEventListener("click", function(){
+            catEngine.addCounter(index);
+        });
     }
 };

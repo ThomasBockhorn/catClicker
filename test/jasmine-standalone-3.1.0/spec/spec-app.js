@@ -1,4 +1,5 @@
 
+
 //This test suite looks at the cat clicker's data
 describe("Cat clicker data", function(){
     
@@ -37,7 +38,7 @@ describe("Cat clicker data", function(){
     
     //Spec to see if each cat object had a quote
     it("All the cats have a funny quote", function(){
-        for(let i = 0; i < catData.length; i++){
+        for(var i = 0; i < catData.length; i++){
             expect(catData[i].quote).toBeDefined();
         }
     });
@@ -45,7 +46,11 @@ describe("Cat clicker data", function(){
 
 //This suite looks at the inner workings of cat clicker.
 describe("Cat engine", function(){
-
+    //This test accounts for the current index
+    it("index variable", function(){
+        expect(catEngine.index).toBeDefined(); 
+    });
+    
     //Does the cat engine object exist
     it("Cat engine object exist", function(){
         expect(catEngine).toBeDefined();
@@ -166,5 +171,17 @@ describe("Cat engine", function(){
         var test = catEngine.deleteCat();
 
         expect(test).toBe(0);
+    });
+});
+
+//Display object
+describe("Display object", function(){
+    it("Verifies if the display object exist", function(){
+        expect(render).toBeDefined();
+    });
+
+    //This method allows the click button to function
+    it("click button is defined", function(){
+        expect(render.clickMe).toBeDefined();
     });
 });
