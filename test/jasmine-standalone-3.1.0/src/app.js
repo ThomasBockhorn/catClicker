@@ -1,5 +1,5 @@
 //This the Cat Clicker data for the app.
-const catData = [
+let catData = [
     {   name: "fluffy",
         img: "pic/christmas kitty.png",
         clickNumber: 0,
@@ -92,6 +92,16 @@ const render = {
         let index = catEngine.index;
         buttonClick.addEventListener("click", function(){
             catEngine.addCounter(index);
+        });
+    },
+
+    //This will move the images to the left
+    imgLeft : function(){
+        const buttonLeft = document.querySelection("left");
+        let index = catEngine.index;
+        buttonLeft.addEventListener("click", function(){
+            index += 1;
+            catEngine.currentDisplay(index);
         });
     }
 };

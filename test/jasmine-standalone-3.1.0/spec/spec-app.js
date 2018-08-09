@@ -10,28 +10,28 @@ describe("Cat clicker data", function(){
 
     //spec checks to see if all the cat objects have a name
     it("There are cat names in catData object", function(){
-        for(let i = 0; i < catData.length; i++){
+        for(var i = 0; i < catData.length; i++){
             expect(catData[i].name).toBeDefined();
         }
     });
 
     //spec checks if all the cat objects have an image associated with the object
     it("All cat objects has an img attribute", function(){
-        for(let i = 0; i < catData.length; i++){
+        for(var i = 0; i < catData.length; i++){
             expect(catData[i].img).toBeDefined();
         }
     });
 
     //spec checks if all the img src is defined
     it("All cat objects have a src linking to a file", function(){
-        for(let i = 0; i < catData.length; i++){
+        for(var i = 0; i < catData.length; i++){
             expect(catData[i].img).not.toBe(0);
         }
     });
 
     //spec to see if the clickNumber is defined
     it("All cat objects have the variable clickNumber", function(){
-        for(let i = 0; i < catData.length; i++){
+        for(var i = 0; i < catData.length; i++){
             expect(catData[i].clickNumber).toBeDefined();
         }
     }); 
@@ -39,7 +39,7 @@ describe("Cat clicker data", function(){
     //Spec to see if each cat object had a quote
     it("All the cats have a funny quote", function(){
         for(var i = 0; i < catData.length; i++){
-            expect(catData[i].quote).toBeDefined();
+            expect(catData[i].quote).not.toBe(0);
         }
     });
 });
@@ -183,5 +183,24 @@ describe("Display object", function(){
     //This method allows the click button to function
     it("click button is defined", function(){
         expect(render.clickMe).toBeDefined();
+    });
+
+    //This test the clickMe method works
+    it("The clickMe method works", function(){
+        spyOn(catEngine, "addCounter");
+        catEngine.addCounter();
+        expect(catEngine.addCounter).toHaveBeenCalled();
+    });
+
+    //This method checks to see if the left button works
+    it("Left button is defined", function(){
+        expect(render.imgLeft).toBeDefined();
+    });
+
+    //This test checks to see if the imgLeft calls the currentDisplay method
+    it("currentDisplay method gets called", function(){
+        spyOn(catEngine, "currentDisplay");
+        catEngine.currentDisplay();
+        expect(catEngine.currentDisplay).toHaveBeenCalled();
     });
 });
