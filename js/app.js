@@ -97,11 +97,25 @@ const render = {
 
     //This will move the images to the left
     imgLeft : function(){
-        const buttonLeft = document.querySelection("left");
-        let index = catEngine.index;
+        const buttonLeft = document.querySelector("left");
         buttonLeft.addEventListener("click", function(){
-            index += 1;
-            catEngine.currentDisplay(index);
+            if(catEngine.index > 0){
+                catEngine.index -=1;
+                catEngine.currentDisplay(catEngine.index);
+            }else{
+                catEngine.currentDisplay(0);
+            }
+        });
+    },
+    imgRight: function(){
+        const buttonRight = document.querySelector("right");
+        buttonRight.addEventListener("click", function(){
+            if(catEngine.index < catData.length){
+                catEngine.index +=1;
+                catEngine.currentDisplay(catEngine.index);
+            }else{
+                catEngine.currentDisplay(catData.length);
+            }
         });
     }
 };

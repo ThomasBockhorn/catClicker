@@ -203,4 +203,9 @@ describe("Display object", function(){
         catEngine.currentDisplay();
         expect(catEngine.currentDisplay).toHaveBeenCalled();
     });
+
+    //This test checks to see if the right button works
+    it("Right button is defined", function(){
+        expect(render.imgRight).toBeDefined();
+    });
 });
