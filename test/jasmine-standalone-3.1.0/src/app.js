@@ -107,6 +107,7 @@ const render = {
             }
         });
     },
+    //This will move the image to the right
     imgRight: function(){
         const buttonRight = document.querySelector("right");
         buttonRight.addEventListener("click", function(){
@@ -115,6 +116,18 @@ const render = {
                 catEngine.currentDisplay(catEngine.index);
             }else{
                 catEngine.currentDisplay(catData.length);
+            }
+        });
+    },
+    //This method will reset the click counter
+    resetClick: function(){
+        const resetClick = document.querySelector("resetClick");
+        resetClick.addEventListener("click", function(){
+            if(catEngine.index >= 0){
+                catEngine.resetCounter(catEngine.index);
+            }else{
+                //Need to create some sort of error handling message
+                console.log("There are no cats");
             }
         });
     }

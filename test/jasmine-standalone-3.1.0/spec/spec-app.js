@@ -208,4 +208,9 @@ describe("Display object", function(){
     it("Right button is defined", function(){
         expect(render.imgRight).toBeDefined();
     });
+
+    //This test will check to see if the resetClick method works
+    it("Reset ClickMe button works", function(){
+        expect(render.resetClick).toBeDefined();
+    });
 });
