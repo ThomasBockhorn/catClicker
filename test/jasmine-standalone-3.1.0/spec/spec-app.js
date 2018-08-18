@@ -51,6 +51,12 @@ describe("Cat engine", function(){
         expect(catEngine.index).toBeDefined(); 
     });
     
+
+    //This test checks to see if the init function exists
+    it("init() function exists", function(){
+        expect(catEngine.init).toBeDefined();
+    });
+
     //Does the cat engine object exist
     it("Cat engine object exist", function(){
         expect(catEngine).toBeDefined();

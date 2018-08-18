@@ -30,6 +30,14 @@ const catEngine = {
     //keeps track of current index
     index : 0,
 
+    //The init function
+    init: function(){
+       render.clickMe();
+       render.imgLeft();
+       render.imgRight();
+       render.resetClick(); 
+    },
+
     //This method will increment the counter
     addCounter : function(index){
         catData[index].clickNumber += 1;
