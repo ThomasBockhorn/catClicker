@@ -30,13 +30,8 @@ const catEngine = {
     //keeps track of current index
     index : 0,
 
-    //The init function
-    init: function(){
-       render.clickMe();
-       render.imgLeft();
-       render.imgRight();
-       render.resetClick(); 
-    },
+    //keeps track of the total number of cats
+    total : catData.length,
 
     //This method will increment the counter
     addCounter : function(index){
@@ -50,18 +45,8 @@ const catEngine = {
 
     //This method will the display object to view a particular object in the
     //catData array
-    currentDisplay : function(index){
-        if(index >= 0){
-            return catData[index];
-        }
-        else{
-            return catData[0];
-        }
-    },
-
-    //This method will display all the cats
-    displayAll : function(){
-        return catData;
+    currentDisplay : function(){
+        return catData[this.index];
     },
 
     //This method will add a cat into the catData array
@@ -96,40 +81,35 @@ const catEngine = {
 const render = {
     //This allows the clickMe button to increment the clickCount number
     clickMe : function(){
-        const buttonClick = document.querySelector("clickMe");
         let index = catEngine.index;
-        buttonClick.addEventListener("click", function(){
-            catEngine.addCounter(index);
-        });
+        catEngine.addCounter(index);
     },
 
     //This will move the images to the left
     imgLeft : function(){
-        const buttonLeft = document.querySelector("left");
-        buttonLeft.addEventListener("click", function(){
-            if(catEngine.index > 0){
-                catEngine.index -=1;
-                catEngine.currentDisplay(catEngine.index);
-            }else{
-                catEngine.currentDisplay(0);
-            }
-        });
+        if(catEngine.index > 0 ){
+            catEngine.currentDisplay(catEngine.index);
+            catEngine.index -=1;
+        }else{
+            catEngine.currentDisplay(catEngine.total);
+            catEngine.index = catEngine.total;
+        }
     },
+
     //This will move the image to the right
-    imgRight: function(){
-        const buttonRight = document.querySelector("right");
-        buttonRight.addEventListener("click", function(){
-            if(catEngine.index < catData.length){
-                catEngine.index +=1;
-                catEngine.currentDisplay(catEngine.index);
-            }else{
-                catEngine.currentDisplay(catData.length);
-            }
-        });
-    },
+    imgRight : function(){
+        if(catEngine.index < catEngine.total){
+            catEngine.currentDisplay(catEngine.index);
+            catEngine.index +=1;
+        }else{
+            catEngine.currentDisplay(0); 
+            catEngine.index = 0;
+        }
+    }, 
+
     //This method will reset the click counter
-    resetClick: function(){
-        const resetClick = document.querySelector("resetClick");
+    resetClick : function(){
+        const resetClick = document.querySelectorAll(".resetClick");
         resetClick.addEventListener("click", function(){
             if(catEngine.index >= 0){
                 catEngine.resetCounter(catEngine.index);
@@ -140,3 +120,23 @@ const render = {
         });
     }
 };
+
+//clickMe button
+let button = document.getElementById("clickMe");
+button.addEventListener("click", function(){
+    render.clickMe();
+});
+
+//Left button
+let buttonLeft = document.getElementById("left");
+buttonLeft.addEventListener("click", function(){
+    render.imgLeft();
+    console.log(catEngine.currentDisplay());
+});
+
+//Right button
+let buttonRight = document.getElementById("right");
+buttonRight.addEventListener("click", function(){
+    render.imgRight();
+    console.log(catEngine.currentDisplay());
+});

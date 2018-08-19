@@ -51,12 +51,6 @@ describe("Cat engine", function(){
         expect(catEngine.index).toBeDefined(); 
     });
     
-
-    //This test checks to see if the init function exists
-    it("init() function exists", function(){
-        expect(catEngine.init).toBeDefined();
-    });
-
     //Does the cat engine object exist
     it("Cat engine object exist", function(){
         expect(catEngine).toBeDefined();
@@ -102,17 +96,6 @@ describe("Cat engine", function(){
     //This test checks what the error handling if index was negative
     it("if index is negative, currentDisplay() will point to index 0", function(){
         expect(catEngine.currentDisplay(-1)).not.toBeUndefined();
-    });
-
-    //This test checks if displayAll exists
-    it("displayAll exists", function(){
-        expect(catEngine.displayAll).toBeDefined();
-    });
-
-    //This test checks to see if displayAll method displays all the images
-    it("displays all the catData images", function(){
-        var testData = catEngine.displayAll;
-        expect(testData).not.toBe(0);
     });
 
     //This test checks to see if addCat method exists
