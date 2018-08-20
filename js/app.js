@@ -87,18 +87,18 @@ const render = {
 
     //This will move the images to the left
     imgLeft : function(){
-        if(catEngine.index > 0 ){
+        if(catEngine.index > 0){
             catEngine.currentDisplay(catEngine.index);
             catEngine.index -=1;
         }else{
-            catEngine.currentDisplay(catEngine.total);
-            catEngine.index = catEngine.total;
+            catEngine.currentDisplay(catEngine.total - 1);
+            catEngine.index = catEngine.total - 1;
         }
     },
 
     //This will move the image to the right
     imgRight : function(){
-        if(catEngine.index < catEngine.total){
+        if(catEngine.index < catEngine.total -1){
             catEngine.currentDisplay(catEngine.index);
             catEngine.index +=1;
         }else{
