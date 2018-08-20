@@ -109,18 +109,13 @@ const render = {
 
     //This method will reset the click counter
     resetClick : function(){
-        const resetClick = document.querySelectorAll(".resetClick");
-        resetClick.addEventListener("click", function(){
-            if(catEngine.index >= 0){
-                catEngine.resetCounter(catEngine.index);
-            }else{
-                //Need to create some sort of error handling message
-                console.log("There are no cats");
-            }
-        });
+        if(catEngine.index >= 0){
+            catEngine.resetCounter(catEngine.index);
+        }
     }
 };
 
+//These are the various buttons that sent info to the render object
 //clickMe button
 let button = document.getElementById("clickMe");
 button.addEventListener("click", function(){
@@ -139,4 +134,10 @@ let buttonRight = document.getElementById("right");
 buttonRight.addEventListener("click", function(){
     render.imgRight();
     console.log(catEngine.currentDisplay());
+});
+
+//Reset Clicker number
+let resetClickButton = document.getElementById("resetClick");
+resetClickButton.addEventListener("click", function(){
+    render.resetClick();
 });
