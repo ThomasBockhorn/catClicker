@@ -142,6 +142,18 @@ const render = {
         }
     },
 
+    //This parse method will grab the saying to be displayed
+    parseQuote : function() {
+        if(catEngine.total != 0){
+            let cat = catEngine.currentDisplay();
+            return cat.quote;
+        }
+        else{
+            return 0;
+        }
+
+    },
+
     //This method will display the cats and various pieces of info on the screen
     display : function(){
         let canvas = document.getElementById("mainImage");
@@ -157,11 +169,17 @@ const render = {
     //This method will update the number of clicks
     clickNumberDisplay : function(){
         document.getElementById("clickNumber").innerHTML = this.parseClick();
+    },
+
+    //This method will display the parsed quote
+    catQuote : function(){
+        document.getElementById("catPun").innerHTML = this.parseQuote();
     }
 };
 
 //This will draw the image
 render.display();
+render.catQuote();
 
 //These are the various buttons that sent info to the render object
 //clickMe button
@@ -169,6 +187,7 @@ let button = document.getElementById("clickMe");
 button.addEventListener("click", function(){
     render.clickMe();
     render.clickNumberDisplay();
+    render.catQuote();
 });
 
 //Left button
@@ -177,6 +196,7 @@ buttonLeft.addEventListener("click", function(){
     render.imgLeft();
     render.display();
     render.clickNumberDisplay();
+    render.catQuote();
 });
 
 //Right button
@@ -185,6 +205,7 @@ buttonRight.addEventListener("click", function(){
     render.imgRight();
     render.display();
     render.clickNumberDisplay();
+    render.catQuote();
 });
 
 //Reset Clicker number
@@ -198,4 +219,7 @@ resetClickButton.addEventListener("click", function(){
 let deleteCatButton = document.getElementById("deleteCat");
 deleteCatButton.addEventListener("click", function(){
     catEngine.deleteCat();
+    render.display();
+    render.catQuote();
+    render.clickNumberDisplay();
 });
