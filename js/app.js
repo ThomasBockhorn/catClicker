@@ -130,6 +130,18 @@ const render = {
             return 0;
         }
     },
+
+    //This method will parse the number of clicks
+    parseClick : function(){
+        if(catEngine.total != 0){
+            let cat = catEngine.currentDisplay();
+            return cat.clickNumber;
+        }
+        else{
+            return 0;
+        }
+    },
+
     //This method will display the cats and various pieces of info on the screen
     display : function(){
         let canvas = document.getElementById("mainImage");
@@ -140,6 +152,11 @@ const render = {
             ctx.clearRect(0,0,canvas.width,canvas.height);
             ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
         };
+    },
+
+    //This method will update the number of clicks
+    clickNumberDisplay : function(){
+        document.getElementById("clickNumber").innerHTML = this.parseClick();
     }
 };
 
@@ -151,28 +168,30 @@ render.display();
 let button = document.getElementById("clickMe");
 button.addEventListener("click", function(){
     render.clickMe();
+    render.clickNumberDisplay();
 });
 
 //Left button
 let buttonLeft = document.getElementById("left");
 buttonLeft.addEventListener("click", function(){
     render.imgLeft();
-    console.log(catEngine.currentDisplay());
     render.display();
+    render.clickNumberDisplay();
 });
 
 //Right button
 let buttonRight = document.getElementById("right");
 buttonRight.addEventListener("click", function(){
     render.imgRight();
-    console.log(catEngine.currentDisplay());
     render.display();
+    render.clickNumberDisplay();
 });
 
 //Reset Clicker number
 let resetClickButton = document.getElementById("resetClick");
 resetClickButton.addEventListener("click", function(){
     render.resetClick();
+    render.clickNumberDisplay();
 });
 
 //Delete Cat button

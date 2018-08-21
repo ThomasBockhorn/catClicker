@@ -10,7 +10,7 @@
 <body>
 <nav><h1>Cat Clicker 1.0</h1></nav>
 <div id="container">
-    <div class="clickNumber"><h2>Number of Clicks:</h2><span>x</span></div>
+    <div class="clickNumber"><h2>Number of Clicks:</h2><span id="clickNumber">x</span></div>
     <div class="catPun">xxxx</div>
     <div class="mainCatImage">
         <div class="buttons">
@@ -19,15 +19,13 @@
                 <button id="addCat" type="button">Add a New Cat</button>
                 <button id="deleteCat" type="button">Delete a Cat</button>
                 <button id="resetClick" type="button">Reset Click Number</button>
+                <button id="left" type="button">Previous</button>
+                <button id="right" type="button">Next</button>
             </form>
         </div>
         <div class="field">
             <canvas id="mainImage"></canvas>
         </div> 
-    </div>
-    <div class="navigationButtons">
-        <button id="left" type="button">Left</button>
-        <button id="right" type="button">Right</button>
     </div>
 </div>
 <script src="js/app.js"></script>
