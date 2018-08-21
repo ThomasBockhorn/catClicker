@@ -73,7 +73,7 @@ const catEngine = {
 
     //This method will delete a cat from the catData array
     deleteCat : function(){
-        if(catData.length > 0 && this.index != null){
+        if(catData.length != 0 && this.index != null){
             catData.splice(this.index,1);
             this.total -=1;
         }
@@ -177,7 +177,7 @@ const render = {
     }
 };
 
-//This will draw the image
+//This will draw the image initially and show the cat Quote
 render.display();
 render.catQuote();
 
@@ -218,8 +218,13 @@ resetClickButton.addEventListener("click", function(){
 //Delete Cat button
 let deleteCatButton = document.getElementById("deleteCat");
 deleteCatButton.addEventListener("click", function(){
-    catEngine.deleteCat();
-    render.display();
-    render.catQuote();
-    render.clickNumberDisplay();
+    if(catEngine.total > 0){
+        catEngine.deleteCat();
+        render.display();
+        render.catQuote();
+        render.clickNumberDisplay();
+    }
+    else{
+        return 0;   //Find a way to deal with an empty array
+    }   
 });
