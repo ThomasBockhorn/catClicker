@@ -118,8 +118,33 @@ const render = {
         if(catEngine.index >= 0){
             catEngine.resetCounter(catEngine.index);
         }
+    },
+
+    //This method will parse the img to its components
+    parseImg : function(){
+        if(catEngine.total != 0){
+            let cat = catEngine.currentDisplay();
+            return cat.img;
+        }
+        else{
+            return 0;
+        }
+    },
+    //This method will display the cats and various pieces of info on the screen
+    display : function(){
+        let canvas = document.getElementById("mainImage");
+        let ctx = canvas.getContext("2d");
+        let img = new Image();
+        img.src = this.parseImg();
+        img.onload = function(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+        };
     }
 };
+
+//This will draw the image
+render.display();
 
 //These are the various buttons that sent info to the render object
 //clickMe button
@@ -133,6 +158,7 @@ let buttonLeft = document.getElementById("left");
 buttonLeft.addEventListener("click", function(){
     render.imgLeft();
     console.log(catEngine.currentDisplay());
+    render.display();
 });
 
 //Right button
@@ -140,6 +166,7 @@ let buttonRight = document.getElementById("right");
 buttonRight.addEventListener("click", function(){
     render.imgRight();
     console.log(catEngine.currentDisplay());
+    render.display();
 });
 
 //Reset Clicker number
