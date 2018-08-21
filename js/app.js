@@ -40,7 +40,12 @@ const catEngine = {
 
     //This resets the counter
     resetCounter : function(index){
-        catData[index].clickNumber = 0;
+        if(this.total > 0){
+            catData[index].clickNumber = 0;
+        }
+        else{
+            return  0;
+        }
     },
 
     //This method will the display object to view a particular object in the
@@ -67,9 +72,10 @@ const catEngine = {
     },
 
     //This method will delete a cat from the catData array
-    deleteCat : function(index){
-        if(catData.length > 0 && index != null){
-            catData.splice(index,1);
+    deleteCat : function(){
+        if(catData.length > 0 && this.index != null){
+            catData.splice(this.index,1);
+            this.total -=1;
         }
         else{
             return 0;
@@ -140,4 +146,10 @@ buttonRight.addEventListener("click", function(){
 let resetClickButton = document.getElementById("resetClick");
 resetClickButton.addEventListener("click", function(){
     render.resetClick();
+});
+
+//Delete Cat button
+let deleteCatButton = document.getElementById("deleteCat");
+deleteCatButton.addEventListener("click", function(){
+    catEngine.deleteCat();
 });
